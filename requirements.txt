@@ -1,1 +1,2 @@
-python-telegram-bot==12.3.0
+python-telegram-bot==12.4.2
+schedule==0.6.0
