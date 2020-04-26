@@ -59,6 +59,9 @@ async def writeToFile(file, dict):
 
 def dailyRemind():
     sendmail('日报提醒', '<p>你好：</p><p>五点前需要提交日报！</p>', 'jingcheng.li@mtime.com')
+    sendmail('周报提醒', '<p>你好：</p><p>三点前需要提交周报！</p>', 'bj_lijingcheng@163.com')
+    sendmail('周报提醒', '<p>你好：</p><p>三点前需要提交周报！</p>', 'bj.lijingcheng@gmail.com')
+    print("test send email")
 
     data = readFile(DATA_FILE_NAME)
 
@@ -185,8 +188,11 @@ if __name__ == '__main__':
     schedule.every().thursday.at("16:00").do(dailyRemind)
     schedule.every().friday.at("14:00").do(weeklyRemind)
 
+    schedule.every(1).minutes.do(dailyRemind)
+
     while True:
         schedule.run_pending()
         time.sleep(1)
 
+    print("start bot")
     updater.idle()
