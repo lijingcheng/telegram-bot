@@ -179,11 +179,7 @@ if __name__ == '__main__':
         updater.start_webhook(listen="0.0.0.0", port=PORT, url_path=TOKEN)
         updater.bot.set_webhook("https://{}.herokuapp.com/{}".format(HEROKU_APP_NAME, TOKEN))
 
-    schedule.every().monday.at("16:00").do(dailyRemind)
-    schedule.every().tuesday.at("16:00").do(dailyRemind)
-    schedule.every().wednesday.at("16:00").do(dailyRemind)
-    schedule.every().thursday.at("16:00").do(dailyRemind)
-    schedule.every().friday.at("14:00").do(weeklyRemind)
+    schedule.every().friday.at("03:00").do(weeklyRemind)
 
     while True:
         schedule.run_pending()
